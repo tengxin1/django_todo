@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+
+</head>
+<body>
+  {% if not question_list %}
+    <p>问题列表为空</p>
+  {% endif %}
+
+  <u1>
+    {% for q in question_list %}
+      <a href="{% url 'polls:detail' q.id %}">
+        <li>{{ q.question_text }}  内容：{{ q.pub_date }}</li>
+        <li>{{ q.question_text }}  发布时间：{{ q.pub_date }}</li>
+        <li>{{ q.question_text }}  完成时间：{{ q.pub_date }}</li>
+        <li>{{ q.question_text }}  状态：{{ q.pub_date }}</li>
+      </a>
+    {% endfor %}
+  </u1>
+</body>
+</html>
